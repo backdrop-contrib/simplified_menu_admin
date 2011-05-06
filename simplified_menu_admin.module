@@ -172,6 +172,7 @@ function _simplified_menu_admin_add_form(&$form, $form_state, $form_id) {
   // submit buttons) with ones from the second form, but so far that's exactly
   // what we want for this module.
   $form = call_user_func_array($form_id, array_merge(array($form, $form_state), $args));
+  drupal_alter(array('form', "form_{$form_id}"), $form, $form_state, $form_id);
 
   // Now actually build a full copy of the form we're adding, and use it to
   // merge in that form's #validate and #submit handlers to the overall form.
@@ -179,7 +180,11 @@ function _simplified_menu_admin_add_form(&$form, $form_state, $form_id) {
   foreach (array('#validate', '#submit') as $handler_type) {
     if (!empty($built_form[$handler_type])) {
       foreach ($built_form[$handler_type] as $handler) {
-        $form[$handler_type][] = $handler;
+        // Do not add a handler that is already there, e.g. if it was added in
+        // hook_form_alter() above.
+        if (!isset($form[$handler_type]) || !in_array($handler, $form[$handler_type])) {
+          $form[$handler_type][] = $handler;
+        }
       }
     }
   }
