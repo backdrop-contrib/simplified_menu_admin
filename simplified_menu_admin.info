@@ -1,0 +1,5 @@
+name = Simplified menu administration
+description = Simplifies the Menu and Shortcut modules by merging "List links" and "Edit menu" into a single administration page.
+version = 1.x-1.1
+backdrop = 1.x
+type = module
