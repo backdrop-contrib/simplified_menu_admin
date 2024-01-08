@@ -16,13 +16,10 @@ function simplified_menu_admin_menu_alter(&$items) {
   if (isset($items['admin/structure/menu/manage/%menu/configure'])) {
     $items['admin/structure/menu/manage/%menu/configure'] = array(
       'title' => $items['admin/structure/menu/manage/%menu/configure']['title'],
-      'weight' => -50,
+      'weight' => -10,
       'type' => MENU_DEFAULT_LOCAL_TASK,
       'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
     );
-  }
-  if (isset($items['admin/structure/menu/manage/%menu/add'])) {
-    $items['admin/structure/menu/manage/%menu/add']['weight'] = -10;
   }
 }
 
