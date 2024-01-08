@@ -1,3 +1,4 @@
 name = Simplified menu administration
 description = Simplifies the Menu and Shortcut modules by merging "List links" and "Edit menu" into a single administration page.
-core = 7.x
+backdrop = 1.x
+type = module
