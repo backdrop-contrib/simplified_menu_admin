@@ -85,7 +85,7 @@ Enjoy!
 MAINTAINERS
 -----------
 
--- seeking
+ - [Laryn Kragt Bakker](https://github.com/laryn)
 
 Ported to Backdrop by:
 
